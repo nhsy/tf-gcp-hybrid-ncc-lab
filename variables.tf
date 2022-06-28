@@ -43,11 +43,6 @@ variable "flow_log_config" {
 # Nonprod   - 10.73.0.0/16
 # Prod      - 10.74.0.0/16
 
-variable "peered_networks_cidr_range" {
-  default = "10.72.0.0/14"
-  type    = string
-}
-
 variable "hub_cidr_range" {
   default = "10.64.0.0/16"
   type    = string

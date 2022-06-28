@@ -80,7 +80,7 @@ resource "google_compute_firewall" "hub_icmp" {
   allow {
     protocol = "icmp"
   }
-  source_ranges = ["10.0.0.0/8"]
+  source_ranges = ["10.64.0.0/10"]
   target_service_accounts = [
     google_service_account.appliance_compute.email
   ]
@@ -100,7 +100,7 @@ resource "google_compute_firewall" "hub_appliance_any" {
   allow {
     protocol = "all"
   }
-  source_ranges = [var.peered_networks_cidr_range, local.hub_subnet_cidr_range]
+  source_ranges = ["10.64.0.0/10"]
   target_service_accounts = [
     google_service_account.appliance_compute.email
   ]
@@ -120,7 +120,7 @@ resource "google_compute_firewall" "shared_icmp" {
   allow {
     protocol = "icmp"
   }
-  source_ranges = ["10.0.0.0/8", "192.168.0.0/16"]
+  source_ranges = ["10.64.0.0/10"]
   target_service_accounts = [
     google_service_account.compute.email
   ]

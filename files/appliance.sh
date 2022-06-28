@@ -12,21 +12,20 @@ ip rule add from ${hub_ip}/32 table hub
 ip rule add to ${hub_ip}/32 table hub
 ip rule show
 
-# Add iptables masquerade for peered networks
-iptables -t nat -A POSTROUTING -o ens4 -s ${peered_networks_cidr_range} -j MASQUERADE
-#ip route add 10.72.0.0/22 via ${hub_gw} dev ens5
+# Add iptables masquerade for networks
+iptables -t nat -A POSTROUTING -o ens4 -s 10.64.0.0/10 -j MASQUERADE
 
-if [ -f /var/log/metadata_startup_complete ];then
-  echo "metadata_startup_skipped"
-  exit 0
+if [ -f /var/log/metadata_startup_complete ]; then
+	echo "metadata_startup_skipped"
+	exit 0
 fi
 
 apt install -y \
-  frr \
-  htop \
-  vim \
-  tcpdump \
-  traceroute
+	frr \
+	htop \
+	vim \
+	tcpdump \
+	traceroute
 
 cat >/etc/network/interfaces.d/loopback <<EOF
 auto lo:0

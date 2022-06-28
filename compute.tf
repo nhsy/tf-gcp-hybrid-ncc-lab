@@ -43,14 +43,13 @@ resource "google_compute_instance" "appliance" {
 
   metadata_startup_script = templatefile("files/appliance.sh",
     {
-      router_id                  = google_compute_address.hub_appliance.address,
-      hub_ip                     = google_compute_address.hub_appliance.address,
-      hub_gw                     = google_compute_subnetwork.hub_private.gateway_address,
-      local_asn                  = var.hub_appliance_asn,
-      peer_asn                   = var.hub_router_asn,
-      peer_ip1                   = local.hub_rtr_iface1_ip_address,
-      peer_ip2                   = local.hub_rtr_iface2_ip_address,
-      peered_networks_cidr_range = var.peered_networks_cidr_range
+      router_id = google_compute_address.hub_appliance.address,
+      hub_ip    = google_compute_address.hub_appliance.address,
+      hub_gw    = google_compute_subnetwork.hub_private.gateway_address,
+      local_asn = var.hub_appliance_asn,
+      peer_asn  = var.hub_router_asn,
+      peer_ip1  = local.hub_rtr_iface1_ip_address,
+      peer_ip2  = local.hub_rtr_iface2_ip_address,
     }
   )
 
