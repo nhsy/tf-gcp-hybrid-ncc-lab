@@ -1,0 +1,26 @@
+repos:
+  - repo: https://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.45.0
+    hooks:
+      - id: terraform_fmt
+      - id: terraform_docs
+#      - id: terraform_tfsec
+#      - id: checkov
+#        args: [ '--framework', 'terraform', '--skip-check', 'CKV2_GCP_3', '--skip-check', 'CKV2_GCP_5' ]
+  - repo: meta
+    hooks:
+      - id: check-useless-excludes
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.3.0  # Use the ref you want to point at
+    hooks:
+      - id: trailing-whitespace
+      - id: check-added-large-files
+      - id: check-json
+      - id: check-yaml
+      - id: detect-private-key
+#  - repo: https://github.com/jumanjihouse/pre-commit-hooks
+#    rev: 2.1.4
+#    hooks:
+#      - id: shellcheck
+#        additional_dependencies: []
+#      - id: shfmt
