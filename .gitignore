@@ -1,0 +1,38 @@
+# Local config
+**/.config/*
+**/.ssh/*
+.env
+# Local IDE directories
+**/.idea/*
+# Local VSCode directories
+**/.vscode/*
+# Local .terraform directories
+**/.terraform/*
+.terraformrc
+# Terraform state
+*.tfstate
+*.tfstate.*
+**/terraform.tfstate.d/*
+# Terraform plan outputs
+*.out
+# Local tfvars
+local.tfvars
+# Workspace tfvars
+ws-*.tfvars
+# Crash log files
+crash.log
+# Ignore override files as they are usually used to override resources locally and so
+# are not checked in
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+# Backup files
+*.bak
+*.old
+# Python cache
+*.pyc
+**/__pycache__/*
+# Don't Publish locally built mkdocs site directory
+site/
+
