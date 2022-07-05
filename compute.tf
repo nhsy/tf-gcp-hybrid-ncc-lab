@@ -13,7 +13,7 @@ resource "google_compute_address" "untrusted_appliance" {
 }
 
 resource "google_compute_instance" "appliance" {
-  name         = "vm-appliance"
+  name         = "vm-hub-appliance"
   machine_type = "g1-small"
   zone         = local.zone
 
