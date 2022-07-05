@@ -47,7 +47,7 @@ sed -i "s/^bgpd=no/bgpd=yes/" /etc/frr/daemons
 cat >/etc/frr/frr.conf <<EOF
 frr version 7.5.1
 frr defaults traditional
-hostname appliance-fw1
+hostname hub-appliance
 log syslog
 no ipv6 forwarding
 service integrated-vtysh-config
