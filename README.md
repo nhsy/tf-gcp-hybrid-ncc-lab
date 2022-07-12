@@ -37,12 +37,12 @@ https://cloud.google.com/architecture/architecture-centralized-network-appliance
 
 ### Compute VMs
 
-|       Name       |   Network(s)   |  IP Address   |
-|:----------------:|:--------------:|:-------------:|
-| vm-hub-appliance | Hub, Untrusted | 10.66.0.20/24 |
-|  vm-shared-test  |     Shared     | 10.72.0.20/24 |
-| vm-nonprod-test  |    NonProd     | 10.73.0.20/24 |
-|   vm-prod-test   |      Prod      | 10.74.0.20/24 |
+|       Name       |   Network(s)   |     IP Address(es)     |
+|:----------------:|:--------------:|:----------------------:|
+| vm-hub-appliance | Hub, Untrusted | 10.64.1.20, 10.66.1.20 |
+|  vm-shared-test  |     Shared     |       10.72.1.20       |
+| vm-nonprod-test  |    NonProd     |       10.73.1.20       |
+|   vm-prod-test   |      Prod      |       10.74.1.20       |
 
 ## Usage
 1. Export `GOOGLE_APPLICATIONS_CREDENTIALS` Google Service Account key.
