@@ -52,21 +52,19 @@ gcloud config set project _PROJECT_ID_
 gcloud services enable cloudresourcemanager.googleapis.com
 gcloud services enable compute.googleapis.com
 ```
+2. Setup google cloud authentication either with `gcloud auth application-default login` or a service account or use Google Cloud Shell.
+3. Delete default VPC as there is a 5x VPC limit quota or request a quota increase to 10 VPC networks.
 
 ## Usage
-1. Export `GOOGLE_APPLICATIONS_CREDENTIALS` Google Service Account key.
-2. Copy [terraform.tfvars.sample](terraform.tfvars.sample) to terraform.tfvars and update `project_id`.
+1. Copy [terraform.tfvars.sample](terraform.tfvars.sample) to terraform.tfvars and update `project_id`.
 
 ```shell
 terraform init
 terraform plan
 terraform apply
 ```
-3. Execute shell commands to complete setup of NCC (currently not supported by google terraform provider).
-4. Manually delete the `Default internet gateway` routes for the Peered networks (nw-shared / nw-nonprod / nw-prod) using the GCP Console or CLI.
-
 ## Testing
-Wait 3 minutes after performing the manual steps detailed above then log onto each test GCE VM using IAP and test connectivity as follows:
+Wait 5 minutes after deployment then log onto each test GCE VM using IAP and test connectivity as follows:
 
 ```bash
 gcloud compute ssh vm-shared-test --zone europe-west1-b --tunnel-through-iap --command "ping 8.8.8.8"
@@ -90,8 +88,3 @@ The script configures the following:
 * IP table masquerade
 * Enables ip_forward in sysctl.conf
 * Configures FRR BGP Daemon
-
-## TO DO
-
-- [ ] Attach & configure transit interface to Appliance VM
-- [ ] Create Cloud VPN connection in Transit VPC
