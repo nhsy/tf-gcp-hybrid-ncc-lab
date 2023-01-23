@@ -10,7 +10,6 @@ locals {
   prod_subnet_cidr_range      = cidrsubnet(var.prod_cidr_range, 8, 1)
   shared_subnet_cidr_range    = cidrsubnet(var.shared_cidr_range, 8, 1)
 
-  hub_rtr_iface1_ip_address = cidrhost(local.hub_subnet_cidr_range, 10)
-  hub_rtr_iface2_ip_address = cidrhost(local.hub_subnet_cidr_range, 11)
-
+  hub_rtr_primary_ip_address   = cidrhost(local.hub_subnet_cidr_range, 10)
+  hub_rtr_secondary_ip_address = cidrhost(local.hub_subnet_cidr_range, 11)
 }

@@ -44,6 +44,15 @@ https://cloud.google.com/architecture/architecture-centralized-network-appliance
 | vm-nonprod-test  |    NonProd     |       10.73.1.20       |
 |   vm-prod-test   |      Prod      |       10.74.1.20       |
 
+
+## Pre-requisites
+1. Enable google services needed to bootstrap and run a terraform plan:
+```bash
+gcloud config set project _PROJECT_ID_
+gcloud services enable cloudresourcemanager.googleapis.com
+gcloud services enable compute.googleapis.com
+```
+
 ## Usage
 1. Export `GOOGLE_APPLICATIONS_CREDENTIALS` Google Service Account key.
 2. Copy [terraform.tfvars.sample](terraform.tfvars.sample) to terraform.tfvars and update `project_id`.

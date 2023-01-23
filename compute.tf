@@ -48,8 +48,8 @@ resource "google_compute_instance" "appliance" {
       hub_gw    = google_compute_subnetwork.hub_private.gateway_address,
       local_asn = var.hub_appliance_asn,
       peer_asn  = var.hub_router_asn,
-      peer_ip1  = local.hub_rtr_iface1_ip_address,
-      peer_ip2  = local.hub_rtr_iface2_ip_address,
+      peer_ip1  = local.hub_rtr_primary_ip_address,
+      peer_ip2  = local.hub_rtr_secondary_ip_address,
     }
   )
 

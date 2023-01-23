@@ -1,6 +1,7 @@
 resource "google_compute_network" "hub" {
   name                    = "nw-hub"
   auto_create_subnetworks = false
+  delete_default_routes_on_create = true
 
   depends_on = [time_sleep.api_delay]
 }
@@ -25,6 +26,7 @@ resource "google_compute_subnetwork" "hub_private" {
 resource "google_compute_network" "transit" {
   name                    = "nw-transit"
   auto_create_subnetworks = false
+  delete_default_routes_on_create = true
 
   depends_on = [time_sleep.api_delay]
 }
@@ -73,6 +75,7 @@ resource "google_compute_subnetwork" "untrusted_public" {
 resource "google_compute_network" "prod" {
   name                    = "nw-prod"
   auto_create_subnetworks = false
+  delete_default_routes_on_create = true
 
   depends_on = [time_sleep.api_delay]
 }
@@ -97,6 +100,7 @@ resource "google_compute_subnetwork" "prod_private" {
 resource "google_compute_network" "nonprod" {
   name                    = "nw-nonprod"
   auto_create_subnetworks = false
+  delete_default_routes_on_create = true
 
   depends_on = [time_sleep.api_delay]
 }
@@ -121,6 +125,7 @@ resource "google_compute_subnetwork" "nonprod_private" {
 resource "google_compute_network" "shared" {
   name                    = "nw-shared"
   auto_create_subnetworks = false
+  delete_default_routes_on_create = true
 
   depends_on = [time_sleep.api_delay]
 }
